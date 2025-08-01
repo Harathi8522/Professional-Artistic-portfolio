@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ram Artworks | Professional Portrait Artist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      color: #2c2c2c;
+      background: #000;
+      overflow-x: hidden;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      padding: 15px 0;
+      transition: all 0.3s ease;
+    }
+
+    nav .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8em;
+      font-weight: 700;
+      color: #ffd36c;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffd36c;
+    }
+
+    /* Hero Section */
+    header {
+      background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), 
+                  url('https://images.unsplash.com/photo-1578662374053-8697d31fd0c5?auto=format&fit=crop&w=1920&q=80') center/cover;
+      color: #fff;
+      padding: 180px 20px 120px;
+      text-align: center;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5em;
+      margin-bottom: 20px;
+      color: #ffd36c;
+      animation: fadeInUp 1s ease-out;
+      font-weight: 700;
+      letter-spacing: -2px;
+    }
+
+    .subtitle {
+      font-size: 1.6em;
+      margin-bottom: 15px;
+      opacity: 0.95;
+      color: #ffffff;
+      font-weight: 300;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .tagline {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: #ffd36c;
+      font-weight: 400;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      padding: 18px 40px;
+      background: linear-gradient(135deg, #ff9900, #ffd36c);
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1em;
+      transition: all 0.3s ease;
+      animation: fadeInUp 1s ease-out 0.6s both;
+      box-shadow: 0 8px 25px rgba(255, 153, 0, 0.3);
+    }
+
+    .cta-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(255, 153, 0, 0.4);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* About Section */
+    .about {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,248,248,0.98)), 
+                  url('https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+      padding: 100px 20px;
+    }
+
+    .about-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3em;
+      color: #2c2c2c;
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .about-text {
+      font-size: 1.3em;
+      line-height: 1.8;
+      color: #4a4a4a;
+      margin-bottom: 40px;
+      font-weight: 400;
+    }
+
+    .highlight {
+      color: #d17a00;
+      font-weight: 600;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 30px 20px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .stat-number {
+      font-size: 3em;
+      font-weight: 700;
+      color: #ff9900;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .stat-label {
+      font-size: 1.1em;
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* Services Section */
+    .services {
+      background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6)), 
+                  url('https://images.unsplash.com/photo-1571115764595-644a1f56a55c?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+      padding: 100px 20px;
+      color: #fff;
+    }
+
+    .services-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .service-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .service-icon {
+      font-size: 3em;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-title {
+      font-size: 1.5em;
+      margin-bottom: 15px;
+      color: #ffd36c;
+      font-weight: 600;
+    }
+
+    .service-price {
+      font-size: 1.3em;
+      color: #ff9900;
+      font-weight: 700;
+      margin-top: 15px;
+    }
+
+    /* Gallery Section */
+    .gallery-section {
+      background: linear-gradient(135deg, rgba(248,248,248,0.95), rgba(255,255,255,0.98)), 
+                  url('https://images.unsplash.com/photo-1578321272176-b7bbc0679853?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+      padding: 100px 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      max-width: 1400px;
+      margin: 60px auto 0;
+    }
+
+    .art {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: all 0.4s ease;
+      position: relative;
+    }
+
+    .art:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .art img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .art:hover img {
+      transform: scale(1.05);
+    }
+
+    .art-info {
+      padding: 30px;
+    }
+
+    .art-info h3 {
+      color: #b86b00;
+      font-size: 1.6em;
+      margin-bottom: 12px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+    }
+
+    .art-info p {
+      color: #666;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    /* Process Section */
+    .process {
+      background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7)), 
+                  url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+      padding: 100px 20px;
+      color: #fff;
+    }
+
+    .process-steps {
+      max-width: 1000px;
+      margin: 60px auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .step {
+      text-align: center;
+      padding: 40px 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .step-number {
+      font-size: 2.5em;
+      color: #ffd36c;
+      font-weight: 700;
+      margin-bottom: 20px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .step-title {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(248,248,248,0.98)), 
+                  url('https://images.unsplash.com/photo-1551033406-611cf9a28f67?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+      padding: 100px 20px;
+      text-align: center;
+    }
+
+    .contact-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 50px 0;
+    }
+
+    .contact-method {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-icon {
+      font-size: 2.5em;
+      margin-bottom: 15px;
+      color: #ff9900;
+    }
+
+    .contact-title {
+      font-size: 1.3em;
+      margin-bottom: 10px;
+      color: #2c2c2c;
+      font-weight: 600;
+    }
+
+    .contact-info {
+      color: #666;
+      font-size: 1.1em;
+    }
+
+    .contact-info a {
+      color: #ff9900;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 60px 20px 40px;
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5em;
+      color: #ffd36c;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .footer-tagline {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+      color: #ccc;
+    }
+
+    .social-links {
+      margin: 30px 0;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin: 0 15px;
+      color: #ffd36c;
+      font-size: 1.5em;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.2);
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      header h1 {
+        font-size: 3em;
+      }
+      
+      .subtitle {
+        font-size: 1.3em;
+      }
+      
+      .section-title {
+        font-size: 2.2em;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="logo">🎨 Ram Artworks</div>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home">
+    <div class="hero-content">
+      <h1>Ram Artworks</h1>
+      <p class="subtitle">Professional Portrait Artist</p>
+      <p class="tagline">Capturing Life's Most Precious Moments in Stunning Detail</p>
+      <a class="cta-primary" href="#contact">Commission Your Portrait</a>
+    </div>
+  </header>
+
+  <section class="about fade-in" id="about">
+    <div class="about-content">
+      <h2 class="section-title">Artistry That Speaks to the Soul</h2>
+      <p class="about-text">
+        Hello! I'm <span class="highlight">Ram</span>, the passionate artist behind <span class="highlight">@rrc._.arts</span>. 
+        With over 4 years of dedicated practice, I specialize in creating <strong>hyper-realistic portraits</strong> 
+        that capture not just faces, but the essence of emotions and memories that make each person unique.
+      </p>
+      <p class="about-text">
+        Every stroke is crafted with precision, every detail born from passion. Whether it's a cherished family moment, 
+        a beloved pet, or a special celebration, I transform your photographs into timeless masterpieces that will be treasured for generations.
+      </p>
+      
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">4+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">200+</div>
+          <div class="stat-label">Happy Clients</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Portraits Created</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Satisfaction Rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services fade-in" id="services">
+    <div class="about-content">
+      <h2 class="section-title" style="color: #fff;">Professional Services</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <span class="service-icon">👨‍👩‍👧‍👦</span>
+          <h3 class="service-title">Family Portraits</h3>
+          <p>Capture your family's love and connection in stunning detail. Perfect for gifting or home decoration.</p>
+          <div class="service-price">Starting ₹1,200</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">💑</span>
+          <h3 class="service-title">Couple Portraits</h3>
+          <p>Romantic and intimate portraits that celebrate your special bond. Ideal for anniversaries and weddings.</p>
+          <div class="service-price">Starting ₹1,000</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🐕</span>
+          <h3 class="service-title">Pet Portraits</h3>
+          <p>Honor your furry family members with detailed, loving portraits that capture their unique personality.</p>
+          <div class="service-price">Starting ₹900</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🎭</span>
+          <h3 class="service-title">Character Art</h3>
+          <p>Bring fictional characters to life or create artistic interpretations of cultural and religious figures.</p>
+          <div class="service-price">Starting ₹1,100</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🏢</span>
+          <h3 class="service-title">Logo Design</h3>
+          <p>Custom artistic logos that make your brand stand out with unique, hand-crafted design elements.</p>
+          <div class="service-price">Starting ₹800</div>
+        </div>
+        <div class="service-card">
+          <span class="service-icon">🎁</span>
+          <h3 class="service-title">Gift Portraits</h3>
+          <p>The perfect personalized gift for birthdays, weddings, or any special occasion. Memories that last forever.</p>
+          <div class="service-price">Starting ₹900</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery-section fade-in" id="gallery">
+    <div class="about-content">
+      <h2 class="section-title">Portfolio Showcase</h2>
+      <p class="about-text">Each piece tells a story. Explore my recent works and see the emotion, detail, and craftsmanship that goes into every portrait.</p>
+    </div>
+    
+    <div class="gallery">
+      <div class="art portrait">
+        <img src="https://i.postimg.cc/SQYSNHgX/art1.jpg" alt="Kanha's Charm" />
+        <div class="art-info">
+          <h3>Kanha's Charm</h3>
+          <p>Divine innocence captured through delicate pencil work, showcasing the playful yet serene nature of childhood spirituality.</p>
+        </div>
+      </div>
+      <div class="art couple">
+        <img src="https://i.postimg.cc/J7X8WZhZ/art3.jpg" alt="Birthday Glow" />
+        <div class="art-info">
+          <h3>Birthday Glow</h3>
+          <p>A celebration of life captured in portrait perfection, radiating joy and warmth in every carefully rendered detail.</p>
+        </div>
+      </div>
+      <div class="art festive">
+        <img src="https://i.postimg.cc/1XhLz7z6/art5.jpg" alt="Divine Warrior" />
+        <div class="art-info">
+          <h3>Divine Warrior</h3>
+          <p>Where spirituality meets strength - a powerful portrayal that embodies devotion and courage in stunning realistic detail.</p>
+        </div>
+      </div>
+      <div class="art portrait">
+        <img src="https://i.postimg.cc/vHXNRZ55/art9.jpg" alt="Royal Elegance" />
+        <div class="art-info">
+          <h3>Royal Elegance</h3>
+          <p>Bold and regal, this portrait demonstrates masterful technique in capturing dignity and grace with remarkable finesse.</p>
+        </div>
+      </div>
+      <div class="art couple">
+        <img src="https://i.postimg.cc/65Bm1v49/art8.jpg" alt="Smiling Bride" />
+        <div class="art-info">
+          <h3>Smiling Bride</h3>
+          <p>Radiant wedding day elegance preserved forever - capturing the pure joy and beauty of life's most precious moments.</p>
+        </div>
+      </div>
+      <div class="art festive">
+        <img src="https://i.postimg.cc/k5H00g3T/art4.jpg" alt="Little Star" />
+        <div class="art-info">
+          <h3>Little Star</h3>
+          <p>The sparkle of childhood joy frozen in time - every detail lovingly crafted to preserve these fleeting precious years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process fade-in">
+    <div class="about-content">
+      <h2 class="section-title" style="color: #fff;">My Creative Process</h2>
+      <p class="about-text" style="color: #ccc;">From your vision to a masterpiece - here's how I bring your portraits to life</p>
+      
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">01</div>
+          <h3 class="step-title">Consultation</h3>
+          <p>We discuss your vision, requirements, and I provide expert guidance on the best approach for your portrait.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">02</div>
+          <h3 class="step-title">Sketch & Approval</h3>
+          <p>I create a detailed sketch for your approval, ensuring every detail aligns with your expectations before proceeding.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">03</div>
+          <h3 class="step-title">Artistry</h3>
+          <p>Using premium materials and techniques, I meticulously craft your portrait with passion and precision.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">04</div>
+          <h3 class="step-title">Delivery</h3>
+          <p>Your finished masterpiece is professionally framed and delivered with a complimentary digital file.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact fade-in" id="contact">
+    <div class="contact-content">
+      <h2 class="section-title">Let's Create Something Beautiful Together</h2>
+      <p class="about-text">Ready to transform your precious memories into timeless art? Get in touch today!</p>
+      
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-icon">📱</div>
+          <h3 class="contact-title">Phone</h3>
+          <div class="contact-info">
+            <a href="tel:+917032179670">+91 7032179670</a><br>
+            Available 10 AM - 8 PM
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-icon">📧</div>
+          <h3 class="contact-title">Instagram</h3>
+          <div class="contact-info">
+            <a href="https://www.instagram.com/rrc._.arts?igsh=MTJzdTF2ODI1aXFvbQ==" target="_blank">@rrc._.arts</a><br>
+            DM for quick responses
+          </div>
+        </div>
+        <div class="contact-method">
+          <div class="contact-icon">⚡</div>
+          <h3 class="contact-title">Quick Response</h3>
+          <div class="contact-info">
+            Usually respond within<br>
+            2-4 hours during business hours
+          </div>
+        </div>
+      </div>
+      
+      <a class="cta-primary" href="https://www.instagram.com/rrc._.arts?igsh=MTJzdTF2ODI1aXFvbQ==" target="_blank">Start Your Commission Today</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">🎨 Ram Artworks</div>
+      <p class="footer-tagline">Professional Portrait Artist | Turning Memories into Masterpieces</p>
+      
+      <div class="social-links">
+        <a href="https://www.instagram.com/rrc._.arts?igsh=MTJzdTF2ODI1aXFvbQ==" target="_blank">📷</a>
+        <a href="tel:+917032179670">📞</a>
+      </div>
+      
+      <p><strong>All Services Include:</strong> Professional Framing • High-Resolution Digital File • Satisfaction Guarantee</p>
+      <p style="margin-top: 30px; color: #666; font-size: 0.9em;">© 2025 Ram Artworks. All rights reserved. | Prices starting from ₹900</p>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Navigation background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(0, 0, 0, 0.98)';
+      } else {
+        nav.style.background = 'rgba(0, 0, 0, 0.95)';
+      }
+    });
+  </script>
+</body>
+</html>
